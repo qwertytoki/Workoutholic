@@ -1,0 +1,21 @@
+{
+    "test1":"Test",
+    "test2":"Test {{param1}} {{param2}}",
+    "tex":"testosterone",
+    "selectTheme" :"Select Workout",
+    "selectNewMenu" :"Select Menu",
+    "addTheme" : "Add Workout",
+    "addMenu" : "Add Menu",
+    "addSet" : "Add Set",
+    "workout" : "Workout",
+    "workoutName" : "Workout Name",
+    "workoutAdd" : "New Workout",
+    "noWorkout" : "No Workout",
+    "today" : "Today",
+    "search" : "Search here",
+    "done" : "Done",
+    "cancel" :"Cancel",
+    "delete" : "Delete",
+    "inputWorkoutName" :"Input workout name",
+    "reps" :"reps"
+}

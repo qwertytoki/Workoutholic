@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{viewTitle}}</ion-title>
+    <ion-buttons end>
+           <button ion-button [disabled]="isToday" (click)="today()">{{'today' |translate}}</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="has-header" no-bounce>
+  <ng-template #template
+    let-showEventDetail="showEventDetail"
+    let-selectedDate="selectedDate"
+    let-noEventsLabel="noEventsLabel">
+    <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">
+      <ion-item-sliding  *ngFor="let event of selectedDate?.events">
+        <ion-item (click)="onEventSelected(event)">
+            <div class="event-detail">    {{event.title}}</div>
+            <div class="event-sub-detail">    {{event.subTitle}}</div>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button (click)="removeLine(event.workOutResult.workOutMenu.workOutId, selectedDate)" color="danger" icon-left>
+          {{'delete' |translate}}
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item *ngIf="selectedDate?.events.length==0">
+          <div  class="no-workout-label"  >{{noEventsLabel}}</div>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+  <img [src] ="currentImage" *ngIf ="currentImage">
+
+  <!-- <button ion-button full (click)= "loadImage()">Load Image </button>
+  <button ion-button full (click)= "loadImageFromCamera()">Load Image From Camera</button>
+  <button ion-button full (click)= "loadImageFromScreenshot()">Load Image From Screenshot</button>
+  <button ion-button full (click)= "shareImage()">Share Image </button>
+  <button ion-button outline (click)="screenShot()">Screenshot (PIC)</button>
+  <button ion-button outline (click)="screenShotURI()">Screenshot (URI)</button> -->
+
+   <img src="{{ screen }}" *ngIf="state">
+
+  <calendar
+      [monthviewEventDetailTemplate]="template"
+      [eventSource]="eventSource"
+      [locale]="calendar.locale"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      [formatDayHeader]="calendar.formatDayHeader"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      spaceBetween = " 30 "
+      allDayLabel=""
+      noEventsLabel={{noWorkout}}
+      autoSelect=true step="30">
+  </calendar>
+  <ion-fab bottom right>
+    <button color="danger" ion-fab="" class="fab fab-ios fab-ios-danger" (click)="startInput()">
+    <span class="button-inner"><ion-icon name="add" role="img" class="icon icon-ios ion-ios-add floatingButton" aria-label="add"></ion-icon></span>
+    <div class="button-effect"></div>
+    </button>
+  </ion-fab>
+</ion-content>

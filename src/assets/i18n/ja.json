@@ -1,0 +1,21 @@
+{
+    "test1":"テスト",
+    "test2":"テスト {{param1}} てす{{param2}} てすてす",
+    "tex":"テストステロン",
+    "selectTheme" :"ワークアウト選択",
+    "selectNewMenu" :"メニュー選択",
+    "addTheme" : "ワークアウトを追加",
+    "addMenu" : "メニューを追加",
+    "addSet" : "セットを追加",
+    "workout" : "ワークアウト",
+    "workoutName" : "ワークアウト名",
+    "newWorkout" : "新規ワークアウト",
+    "noWorkout" : "ワークアウトなし",
+    "today" : "今日",
+    "search" : "検索してください",
+    "done" : "完了",
+    "cancel" :"キャンセル",
+    "delete" : " 削除 ",
+    "inputWorkoutName" :"入力してください",
+    "reps" :"回"
+}
